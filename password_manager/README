@@ -1,0 +1,38 @@
+# 🔐 Password Manager
+
+A simple desktop password manager built with Python and Tkinter, styled with the `arc` theme.
+
+![Password Manager](password_manager.png)
+
+## Features
+
+- 💾 Save website credentials (website, email, password) to a local file
+- 🔑 Password generator that creates strong, randomized passwords
+- 📋 Auto-copies generated password to clipboard
+- ⚠️ Validates that no fields are left empty before saving
+- ⌨️ Tab-free navigation — press Enter to move between fields
+
+## How to Run
+
+1. Make sure you have Python installed
+2. Install the required library:
+   ```
+   pip install ttkthemes
+   ```
+3. Run the app:
+   ```
+   python main.py
+   ```
+
+## How to Use
+
+1. Enter the website name
+2. Enter your email or username
+3. Either type a password or click **Generate Password** for a strong one
+4. Click **Add** to save your credentials to `passwords.txt`
+
+## Built With
+
+- Python
+- Tkinter
+- [ttkthemes](https://github.com/RedFantom/ttkthemes) — arc theme
