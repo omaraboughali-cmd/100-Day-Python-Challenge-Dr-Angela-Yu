@@ -1,1 +1,41 @@
+# 🍅 Pomodoro Timer
 
+A clean, desktop Pomodoro timer built with Python and Tkinter, styled with the `arc` theme.
+
+![Pomodoro](screenshot.png)
+
+## Features
+
+- ⏱️ 25-minute work sessions with short and long breaks
+- ✅ Checkmark tracking for completed Pomodoro sessions
+- 🔔 Window pops up automatically when a session ends
+- 🔄 Reset button to restart the timer at any time
+
+## How to Run
+
+1. Make sure you have Python installed
+2. Install the required library:
+   ```
+   pip install ttkthemes
+   ```
+3. Run the app:
+   ```
+   python pomodoro.py
+   ```
+   Or double-click `pomodoro.pyw` to run without the console window
+
+## Pomodoro Technique
+
+| Session | Duration |
+|---------|----------|
+| Work | 25 minutes |
+| Short Break | 5 minutes |
+| Long Break | 20 minutes |
+
+After 4 work sessions, you earn a long break!
+
+## Built With
+
+- Python
+- Tkinter
+- [ttkthemes](https://github.com/RedFantom/ttkthemes) — arc theme
