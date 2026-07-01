@@ -1,5 +1,7 @@
 # 🔐 Password Manager
 
+> **Update:** Now includes a search function to look up saved passwords by website name, with results loaded from a local JSON file.
+
 A simple desktop password manager built with Python and Tkinter, styled with the `arc` theme.
 
 ![Password Manager](password_manager.png)
@@ -7,6 +9,7 @@ A simple desktop password manager built with Python and Tkinter, styled with the
 ## Features
 
 - 💾 Save website credentials (website, email, password) to a local file
+- 🔍 Search saved credentials by website name, with auto-fill into the email/password fields
 - 🔑 Password generator that creates strong, randomized passwords
 - 📋 Auto-copies generated password to clipboard
 - ⚠️ Validates that no fields are left empty before saving
@@ -29,7 +32,8 @@ A simple desktop password manager built with Python and Tkinter, styled with the
 1. Enter the website name
 2. Enter your email or username
 3. Either type a password or click **Generate Password** for a strong one
-4. Click **Add** to save your credentials to `passwords.txt`
+4. Click **Add** to save your credentials to `passwords.json` 
+5. To retrieve saved credentials, enter a website name and click **Search** — the email and password fields will auto-fill, and the password will be copied to your clipboard
 
 ## Built With
 
