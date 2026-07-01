@@ -1,0 +1,28 @@
+# Flashy 
+
+A desktop flashcard app for learning French vocabulary, built with Python and Tkinter.
+
+## How it works
+
+- Each card shows a French word. After a few seconds, it flips to reveal the English translation.
+- Click ✅ if you knew the word — it's removed from your deck and won't show up again this session.
+- Click ❌ if you didn't — it stays in the deck so you'll see it again.
+- Your progress (the words you still need to learn) is saved to `words_to_learn.csv` as you go.
+- Once you've gone through every word, the app shows a "Done" screen.
+- Every time you restart the app, you begin fresh with the full word list.
+
+## Running it
+
+Make sure you have `pandas` and `ttkthemes` installed:
+
+```
+pip install pandas ttkthemes
+```
+
+Then run:
+
+```
+python main.py
+```
+
+Make sure `data/french_words.csv` and the `images/` folder (card front/back, right/wrong buttons) are in place before launching.
