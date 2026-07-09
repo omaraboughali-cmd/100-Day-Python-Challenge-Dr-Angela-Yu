@@ -1,1 +1,56 @@
+# 🧠 Quizzler
+
+A desktop True/False trivia quiz app built with Python and Tkinter, pulling live questions from the Open Trivia Database API.
+
+---
+
+## ✨ What It Does
+
+Quizzler throws a series of True/False trivia questions at you, one at a time, in a clean GUI. Answer using the ✅ or ❌ buttons, get instant feedback, and watch your score update as you go.
+
+## 🛠️ Built With
+
+- **Python** — core logic
+- **Tkinter** — GUI framework
+- **Open Trivia DB API** — live trivia questions via `requests`
+
+## 🎮 How It Works
+
+1. On launch, the app fetches 10 random True/False questions from the Open Trivia DB.
+2. Each question appears on a card-style canvas in the center of the window.
+3. Click ✅ (True) or ❌ (False) to answer.
+4. Instant feedback ("Correct!" / "Oops!") flashes briefly before the next question loads.
+5. Your score updates live at the top of the screen.
+6. Once all questions are answered, the app lets you know the quiz is complete.
+
+## 🚀 Getting Started
+
+**Requirements:**
+```
+pip install requests
+```
+
+**Run it:**
+```
+python main.py
+```
+
+Make sure the `images/` folder (containing `true.png` and `false.png`) is in the same directory as your project files.
+
+## 📂 Project Structure
+
+```
+quizzler-app/
+├── main.py           # Entry point — fetches questions, builds the quiz
+├── quiz_brain.py      # Quiz logic — tracks score, checks answers
+├── question_model.py  # Question data structure
+├── ui.py              # Tkinter GUI
+└── images/
+    ├── true.png
+    └── false.png
+```
+
+## 📌 Notes
+
+Trivia questions and answers come from the [Open Trivia Database](https://opentdb.com/), so content updates each time you run the app.
 
