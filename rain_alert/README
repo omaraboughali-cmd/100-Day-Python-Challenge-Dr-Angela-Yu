@@ -1,1 +1,49 @@
+# ☔ Rain Alert Bot
 
+A Python script that checks the weather forecast for the next 12 hours and sends an SMS alert via Twilio if rain is expected.
+
+## What It Does
+
+1. Fetches hourly weather data from the **Meteoblue API** for a given location.
+2. Checks the precipitation forecast for the next 12 hours.
+3. If rain is detected at any point, sends a single SMS warning via **Twilio**.
+4. If no rain is expected, it simply logs that to the console — no message sent.
+
+## Tech Stack
+
+- Python
+- [Meteoblue API](https://www.meteoblue.com/en/weather-api) — weather forecast data
+- [Twilio API](https://www.twilio.com/docs/sms) — SMS notifications
+- `python-dotenv` — for keeping API keys and credentials out of the codebase
+
+## Setup
+
+1. Clone the repo and install dependencies:
+   ```bash
+   pip install requests twilio python-dotenv
+   ```
+
+2. Create a `.env` file in the project root with your credentials:
+   ```
+   TWILIO_ACCOUNT_SID=your_account_sid
+   TWILIO_AUTH_TOKEN=your_auth_token
+   METEOBLUE_API_KEY=your_meteoblue_api_key
+   ```
+
+3. Update the `to` phone number in the script with the recipient's number (in international format, e.g. `+201234567890`).
+
+4. Run the script:
+   ```bash
+   python rain_alert.py
+   ```
+
+## Notes
+
+- Designed to run on a schedule (e.g. via a cron job or Windows Task Scheduler) so it checks the forecast automatically each day.
+- Only sends **one** SMS per run, even if rain is predicted at multiple points in the 12-hour window — no spam.
+
+## What I Learned
+
+- Working with real-world weather APIs and parsing JSON forecast data.
+- Sending SMS programmatically with Twilio.
+- Keeping API keys and secrets secure using environment variables instead of hardcoding them.
