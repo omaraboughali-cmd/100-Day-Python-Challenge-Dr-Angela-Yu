@@ -10,7 +10,7 @@ load_dotenv()
 sid = os.getenv('TWILIO_ACCOUNT_SID')
 token = os.getenv('TWILIO_AUTH_TOKEN')
 
-TWILIO_PHONE_NUMBER='16293171352'
+TWILIO_PHONE_NUMBER='+16293171352'
 
 
 
@@ -21,7 +21,7 @@ response = requests.get(METEOBLUE_URL).json()
 
 times = response['data_1h']['time']
 precip = response['data_1h']['precipitation']
-print(response)
+
 # 3. Logic to check for rain in the next 12 hours
 rain_found = False
 for i in range(12):
