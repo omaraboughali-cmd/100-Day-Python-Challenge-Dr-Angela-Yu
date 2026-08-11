@@ -1,1 +1,70 @@
+# Pixela Habit Tracker CLI
 
+A simple command-line tool for logging daily habit progress to [Pixela](https://pixe.la), a graph-based habit-tracking service. Update, log, or delete a day's entry ("pixel") right from your terminal.
+
+## Features
+
+- ✅ Update (or create) today's pixel with a custom quantity
+- 🗑️ Delete today's pixel
+- 🎨 Color-coded terminal feedback for success/error responses
+- 🔐 Reads your Pixela token and username from environment variables (falls back to a prompt for the token)
+
+## Requirements
+
+- Python 3.7+
+- [`requests`](https://pypi.org/project/requests/)
+
+Install the dependency:
+
+```bash
+pip install requests
+```
+
+## Setup
+
+1. **Create a Pixela account and graph** (if you haven't already). You'll need:
+   - A Pixela **username**
+   - A Pixela **token**
+   - A graph with ID `graph1` (create one via the Pixela API — the commented-out code near the top of the script shows how)
+
+2. **Set your credentials as environment variables:**
+
+   ```bash
+   export username="your_pixela_username"
+   export token="your_pixela_token"
+   ```
+
+   If `token` isn't set, the script will prompt you to enter it manually when run.
+
+3. **Update the username in the endpoint URLs.** Currently the script hardcodes `omarayman` in the endpoint paths — replace this with your own Pixela username (or refactor to use the `username` variable, since right now it's read from the environment but not actually used in the URLs).
+
+## Usage
+
+Run the script:
+
+```bash
+python pixela_tracker.py
+```
+
+You'll see a menu:
+
+```
+What would you like to do with pixela today
+1 Update / Create a pixel
+2 Delete a pixel
+3 Quit
+```
+
+- **1** — Enter a quantity, and it will be logged to today's date on your graph.
+- **2** — Deletes today's pixel entry.
+- **3** — Exits the program.
+
+## Notes / Known Issues
+
+- The graph ID is hardcoded to `graph1` — update `new_new_endpoint` if you use a different graph.
+- The endpoint URLs use a hardcoded username (`omarayman`) instead of the `username` variable — worth fixing so the script works for any user without editing the source.
+- Graph creation is commented out; uncomment and run once to create your graph before logging pixels.
+
+## License
+
+MIT
