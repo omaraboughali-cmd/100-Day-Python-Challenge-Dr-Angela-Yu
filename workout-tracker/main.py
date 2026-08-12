@@ -10,13 +10,11 @@ load_dotenv()
 
 TOKEN = os.getenv('TOKEN')
 
+API_KEY = os.getenv('API_KEY')
+
 today = datetime.datetime.now()
 
-# today = today.strftime()
-
 APP_ID = 'app_a01d20df46de4d38a704335d'
-
-API_KEY = 'nix_live_TI5Heiq6O7hz01m4e1rcG7U86wCixQnc'
 
 BASE_URL = 'https://app.100daysofpython.dev'
 
