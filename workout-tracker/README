@@ -1,1 +1,73 @@
+# Workout Tracker (Nutritionix + Sheety)
 
+A command-line tool that logs your workouts to a Google Sheet. Describe your exercise in plain English (e.g. "ran 3 miles"), and it uses the [Nutritionix API](https://developer.nutritionix.com/) to parse out the exercise name, duration, and calories burned — then automatically appends that data to a Google Sheet via [Sheety](https://sheety.co/).
+
+## Features
+
+- 🗣️ Natural language exercise input ("ran for 30 minutes")
+- 🔥 Automatic calorie and duration calculation via Nutritionix
+- 📊 Auto-logs date, time, exercise, duration, and calories to a Google Sheet
+- 🔐 API key and token loaded securely from a `.env` file
+
+## Requirements
+
+- Python 3.7+
+- [`requests`](https://pypi.org/project/requests/)
+- [`python-dotenv`](https://pypi.org/project/python-dotenv/)
+
+Install dependencies:
+
+```bash
+pip install requests python-dotenv
+```
+
+## Setup
+
+1. **Nutritionix API credentials**
+   - Sign up at [Nutritionix Developer Portal](https://developer.nutritionix.com/) to get your `App ID` and `API Key`.
+
+2. **Sheety setup**
+   - Create a Google Sheet with columns: `date`, `time`, `exercise`, `duration`, `calories`
+   - Connect it to [Sheety](https://sheety.co/) to get an API endpoint
+   - Set up Sheety authentication (Bearer token) if your project requires it
+
+3. **Create a `.env` file** in the project root:
+
+   ```
+   TOKEN=your_sheety_bearer_token
+   API_KEY=your_nutritionix_api_key
+   ```
+
+   Note: `APP_ID` is not a secret (it's just an identifier), so it's fine left hardcoded in the script — but `API_KEY` and `TOKEN` should always come from `.env`.
+
+4. **Add `.env` to `.gitignore`** so your credentials never get committed:
+
+   ```
+   echo ".env" >> .gitignore
+   ```
+
+## Usage
+
+Run the script:
+
+```bash
+python workout_tracker.py
+```
+
+You'll be prompted:
+
+```
+How much did you workout
+```
+
+Type a natural language description, e.g.:
+
+```
+ran 3 miles
+```
+
+The script will parse it, print the response status/data, and log the entry to your connected Google Sheet.
+
+## License
+
+MIT
