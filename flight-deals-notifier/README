@@ -1,0 +1,53 @@
+# ✈️ Flight Deals Notifier
+
+A Python automation project from Dr. Angela Yu's **100 Days of Code** (Days 39–40 capstone), rebuilt around **SerpApi's Google Flights engine** instead of the original Kiwi/Amadeus/Tequila API.
+
+The script checks a Google Sheet of destination cities and target prices, searches for live one-way flight prices from a home airport, and sends an alert whenever a flight beats the target price.
+
+## How it works
+
+1. **`DataManager`** reads and updates a Google Sheet through the [Sheety](https://sheety.co/) API — pulling city names, IATA codes, and target prices, and writing back any newly discovered IATA codes.
+2. **`FlightSearch`** resolves each city to a specific airport IATA code (a small local fallback dictionary for common destinations, with SerpApi's Google Flights Autocomplete as a backup), then queries SerpApi's Google Flights engine for live one-way prices.
+3. **`FlightData`** parses the raw SerpApi JSON response into a clean object: price, origin/destination airports, departure/arrival times, and stop count.
+4. **`NotificationManager`** prints (and can be extended to text/email) an alert whenever a flight's price comes in under the sheet's target price.
+5. **`main.py`** ties it all together: syncs the sheet, searches every destination, compares prices, and triggers alerts.
+
+## Setup
+
+1. Create a Google Sheet with columns `City`, `IATA Code`, `Lowest Price` (leave IATA Code blank — the script fills it in).
+2. Create a [Sheety](https://sheety.co/) project pointing at that sheet, and put your endpoint URL in `data_manager.py`.
+3. Get a free [SerpApi](https://serpapi.com/) key (includes a monthly free tier).
+4. Create a `.env` file in the project root:
+   ```
+   API_KEY=your_serpapi_key_here
+   ```
+5. Install dependencies:
+   ```bash
+   pip install requests python-dotenv
+   ```
+6. Run it:
+   ```bash
+   python main.py
+   ```
+
+## A real debugging story
+
+Round-trip searches (`type: 1` with a `return_date`) consistently came back completely empty from SerpApi — even for well-known routes like Cairo to Paris — while the exact same route worked fine as a one-way search. Digging into it turned up two separate causes:
+
+- **City-wide codes vs. specific airports.** Multi-airport city codes like `PAR`, `TYO`, and `NYC` returned nothing, while switching to a single physical airport (`CDG`, `NRT`, `JFK`) returned full results immediately.
+- **Round-trip is a two-step flow.** Per SerpApi's own docs, getting real round-trip pricing requires a second request using a `departure_token` from the first — a single-request round-trip search isn't fully supported the way the original tutorial code assumed.
+
+The project currently uses **one-way searches with specific airport codes** as the reliable, simple solution.
+
+## Known limitations / possible next steps
+
+- Only searches one-way prices, not round-trip
+- IATA fallback dictionary only covers a handful of cities — everything else relies on SerpApi's autocomplete, which can occasionally return ambiguous multi-airport codes
+- `NotificationManager` currently prints to console; can be extended with Twilio (SMS/WhatsApp) or `smtplib` (email)
+
+## Tech stack
+
+- Python
+- [Sheety](https://sheety.co/) (Google Sheets as a REST API)
+- [SerpApi](https://serpapi.com/) Google Flights engine
+- `python-dotenv` for API key management
