@@ -1,0 +1,41 @@
+# Minimalist Flask Library Project 📚
+
+A clean, elegant web application built with **Flask** and **SQLite** to manage your personal book collection. This project features full CRUD (Create, Read, Update, Delete) functionality wrapped in a custom, high-end minimalist aesthetic with warm beige-brown tones.
+
+---
+
+## ✨ Features
+
+- **Full CRUD Operations:** 
+  - **Create:** Add new books with titles, authors, and ratings.
+  - **Read:** View your entire library collection on a clean home page list.
+  - **Update:** Edit existing book ratings with robust input validation (0–10 range checks).
+  - **Delete:** Remove books from your collection instantly.
+- **Custom Minimalist UI:** Designed with an editorial aesthetic featuring a warm cream background, serif headings (`Georgia`), soft cocoa-brown text, and smooth hover states.
+- **Enhanced UX:** Features global hyperlink styling and automatic form field autofocus so you can start typing right away.
+- **Persistent Storage:** Powered by SQLite and Flask-SQLAlchemy for seamless data management.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Backend:** Python, Flask, Flask-SQLAlchemy
+- **Database:** SQLite (`books-collection.db`)
+- **Frontend:** HTML5, CSS3 (Custom centralized stylesheet)
+
+---
+
+## 📁 Project Structure
+
+```text
+library-project/
+│
+├── main.py                 # Main Flask application and routes
+├── instance/
+│   └── books-collection.db # SQLite database
+├── static/
+│   └── style.css           # Centralized minimalist stylesheet
+└── templates/
+    ├── index.html          # Home page (Book list view)
+    ├── add.html            # Add book form
+    └── edit.html           # Edit rating form
