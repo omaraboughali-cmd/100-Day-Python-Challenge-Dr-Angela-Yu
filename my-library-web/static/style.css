@@ -1,0 +1,593 @@
+body {
+
+
+
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+
+
+    background-color: #fcfbfa;
+
+
+
+    color: #5a473b;
+
+
+
+    max-width: 650px;
+
+
+
+    margin: 80px auto;
+
+
+
+    padding: 0 20px;
+
+
+
+    line-height: 1.6;
+
+
+
+}
+
+
+
+
+
+h1 {
+
+
+
+    font-family: Georgia, serif;
+
+
+
+    font-weight: 400;
+
+
+
+    font-size: 2.2rem;
+
+
+
+    text-align: center;
+
+
+
+    color: #433328;
+
+
+
+    margin-bottom: 40px;
+
+
+
+    letter-spacing: -0.5px;
+
+
+
+}
+
+
+
+
+
+a {
+
+
+
+    color: #8c7365;
+
+
+
+    text-decoration: none;
+
+
+
+    transition: color 0.2s;
+
+
+
+}
+
+
+
+
+
+a:hover {
+
+
+
+    color: #433328;
+
+
+
+    text-decoration: underline;
+
+
+
+}
+
+
+
+
+
+ul {
+
+
+
+    list-style-type: none;
+
+
+
+    padding: 0;
+
+
+
+}
+
+
+
+
+
+li {
+
+
+
+    background: #ffffff;
+
+
+
+    margin-bottom: 16px;
+
+
+
+    padding: 20px 24px;
+
+
+
+    border: 1px solid #e6dfdb;
+
+
+
+    border-radius: 4px;
+
+
+
+    display: flex;
+
+
+
+    justify-content: space-between;
+
+
+
+    align-items: center;
+
+
+
+    color: #5a473b;
+
+
+
+    transition: all 0.2s ease;
+
+
+
+}
+
+
+
+
+
+li:hover {
+
+
+
+    border-color: #bfaea6;
+
+
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+
+
+
+}
+
+
+
+
+
+.empty-state {
+
+
+
+    text-align: center;
+
+
+
+    color: #8c7365;
+
+
+
+    background: #ffffff;
+
+
+
+    border: 1px dashed #e6dfdb;
+
+
+
+    padding: 30px;
+
+
+
+    border-radius: 4px;
+
+
+
+    font-style: italic;
+
+
+
+}
+
+
+
+
+
+form {
+
+
+
+    background: #ffffff;
+
+
+
+    padding: 32px;
+
+
+
+    border: 1px solid #e6dfdb;
+
+
+
+    border-radius: 4px;
+
+
+
+    color: #5a473b;
+
+
+
+}
+
+
+
+
+
+input {
+
+
+
+    width: 100%;
+
+
+
+    padding: 12px 16px;
+
+
+
+    margin-bottom: 20px;
+
+
+
+    border: 1px solid #d9d0cb;
+
+
+
+    border-radius: 4px;
+
+
+
+    background-color: #fcfbfa;
+
+
+
+    font-size: 15px;
+
+
+
+    color: #5a473b;
+
+
+
+    box-sizing: border-box;
+
+
+
+    outline: none;
+
+
+
+    transition: border-color 0.2s;
+
+
+
+}
+
+
+
+
+
+input:focus {
+
+
+
+    border-color: #8c7365;
+
+
+
+}
+
+
+
+
+
+button {
+
+
+
+    width: 100%;
+
+
+
+    background: #735c4f;
+
+
+
+    color: #fcfbfa;
+
+
+
+    padding: 12px;
+
+
+
+    border: none;
+
+
+
+    border-radius: 4px;
+
+
+
+    cursor: pointer;
+
+
+
+    font-size: 15px;
+
+
+
+    font-weight: 500;
+
+
+
+    letter-spacing: 0.5px;
+
+
+
+    transition: background 0.2s;
+
+
+
+}
+
+
+
+
+
+button:hover {
+
+
+
+    background: #5c493c;
+
+
+
+}
+
+
+
+
+
+.actions a {
+
+
+
+    margin-left: 16px;
+
+
+
+    font-size: 13px;
+
+
+
+    letter-spacing: 0.5px;
+
+
+
+    text-transform: uppercase;
+
+
+
+}
+
+
+
+
+
+.actions a:last-child:hover {
+
+
+
+    color: #734c3f;
+
+
+
+}
+
+
+
+
+
+.add-btn {
+
+
+
+    display: block;
+
+
+
+    text-align: center;
+
+
+
+    background: transparent;
+
+
+
+    color: #735c4f;
+
+
+
+    padding: 14px;
+
+
+
+    border: 1px dashed #bfaea6;
+
+
+
+    border-radius: 4px;
+
+
+
+    margin-top: 24px;
+
+
+
+    font-weight: 500;
+
+
+
+    letter-spacing: 0.5px;
+
+
+
+    transition: all 0.2s;
+
+
+
+}
+
+
+
+
+
+.add-btn:hover {
+
+
+
+    background: #f5f0ed;
+
+
+
+    border-color: #735c4f;
+
+
+
+    color: #433328;
+
+
+
+    text-decoration: none;
+
+
+
+}
+
+
+
+
+
+.error {
+
+
+
+    color: #6e5446;
+
+
+
+    background: #f5f0ed;
+
+
+
+    border: 1px solid #e6dfdb;
+
+
+
+    padding: 12px;
+
+
+
+    border-radius: 4px;
+
+
+
+    text-align: center;
+
+
+
+    margin-bottom: 20px;
+
+
+
+    font-size: 14px;
+
+
+
+    font-weight: 500;
+
+
+
+}
+
+
+
+
+
+.back {
+
+
+
+    display: block;
+
+
+
+    text-align: center;
+
+
+
+    margin-top: 20px;
+
+
+
+    font-size: 14px;
+
+
+
+}
